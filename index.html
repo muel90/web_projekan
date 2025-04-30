@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bimbel Pintar - Login/Daftar</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .tab-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .tab-buttons button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      background-color: #e0e0e0;
+      font-weight: bold;
+    }
+
+    .tab-buttons button.active {
+      background-color: #2d89ef;
+      color: white;
+    }
+
+    .form-section {
+      display: none;
+    }
+
+    .form-section.active {
+      display: block;
+    }
+
+    .status {
+      margin-top: 10px;
+      font-weight: bold;
+      color: green;
+    }
+
+    .status.error {
+      color: red;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      box-sizing: border-box;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 30px;
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    body {
+      background: #f3f4f6;
+      font-family: sans-serif;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Bimbel Pintar</h2>
+    <div class="tab-buttons">
+      <button id="loginTab" class="active" onclick="switchTab('login')">Login</button>
+      <button id="registerTab" onclick="switchTab('register')">Daftar</button>
+    </div>
+
+    <!-- Form Login -->
+    <div id="loginForm" class="form-section active">
+      <form id="form-login">
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" name="email" required>
+
+        <label for="loginPassword">Kata Sandi</label>
+        <input type="password" id="loginPassword" name="password" required>
+
+        <button type="submit">Masuk</button>
+      </form>
+    </div>
+
+    <!-- Form Daftar -->
+    <div id="registerForm" class="form-section">
+      <form id="form-daftar">
+        <label for="namaLengkap">Nama Lengkap</label>
+        <input type="text" id="namaLengkap" name="nama" required>
+
+        <label for="registerEmail">Email</label>
+        <input type="email" id="registerEmail" name="email" required>
+
+        <label for="registerTelepon">No. Telepon</label>
+        <input type="tel" id="registerTelepon" name="telepon" required>
+
+        <label for="registerPassword">Kata Sandi</label>
+        <input type="password" id="registerPassword" name="password" required>
+
+        <button type="submit">Daftar</button>
+      </form>
+      <p id="statusPesan" class="status"></p>
+    </div>
+  </div>
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+
+<script>
+  document.getElementById("form-login").addEventListener("submit", function(e) {
+    e.preventDefault();
+    sessionStorage.setItem("isLoggedIn", "true");
+    window.location.href = "home.html";
+  });
+</script>
+
+
+  <script>
+    function switchTab(tab) {
+      document.getElementById("loginTab").classList.remove("active");
+      document.getElementById("registerTab").classList.remove("active");
+      document.getElementById("loginForm").classList.remove("active");
+      document.getElementById("registerForm").classList.remove("active");
+
+      if (tab === 'login') {
+        document.getElementById("loginTab").classList.add("active");
+        document.getElementById("loginForm").classList.add("active");
+      } else {
+        document.getElementById("registerTab").classList.add("active");
+        document.getElementById("registerForm").classList.add("active");
+      }
+    }
+
+    // Inisialisasi EmailJS
+    emailjs.init("KSXjVHKmfe7Kgsrjh"); // Ganti dengan public key kamu
+
+    // Kirim Form Daftar ke Email
+    document.getElementById("form-daftar").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      emailjs.sendForm("service_bimbel", "template_qwpmogo", this)
+        .then(function() {
+          document.getElementById("statusPesan").textContent = "✅ verivikasi data anda di whatapp dalam beberapa menit!";
+          document.getElementById("statusPesan").classList.remove("error");
+          document.getElementById("form-daftar").reset();
+        }, function(error) {
+          document.getElementById("statusPesan").textContent = "❌ Gagal mengirim. Silakan coba lagi.";
+          document.getElementById("statusPesan").classList.add("error");
+          console.error("EmailJS Error:", error);
+        });
+    });
+
+    // Ketika tombol login ditekan, kembali ke tampilan awal (misal: tampil.html)
+    document.getElementById("form-login").addEventListener("submit", function(e) {
+      e.preventDefault();
+      // Ganti 'home.html' sesuai dengan lokasi file tampilan awal kamu
+      window.location.href = "home.html";
+    });
+  </script>
+
+<script>
+  document.getElementById("form-login").addEventListener("submit", function(e) {
+    e.preventDefault();
+    sessionStorage.setItem("isLoggedIn", "true");
+    window.location.href = "home.html";
+  });
+</script>
+
+</body>
+</html>

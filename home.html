@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Bimbel Pintar - Home</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #6dd5ed, #2193b0);
+            margin: 0;
+            padding: 0;
+        }
+        .login-top-left {
+            position: absolute;
+            top: 24px;
+            left: 32px;
+            z-index: 10;
+        }
+        .btn-login {
+            background: linear-gradient(90deg, #2193b0, #6dd5ed);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 28px;
+            font-size: 1em;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(33,147,176,0.10);
+            transition: background 0.2s;
+        }
+        .btn-login:hover {
+            background: linear-gradient(90deg, #6dd5ed, #2193b0);
+        }
+        header {
+            background: #fff;
+            padding: 30px 0 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            position: relative;
+        }
+        header h1 {
+            color: #2193b0;
+            font-size: 2.8em;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+        header p {
+            color: #555;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        .promo-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 50px auto 30px auto;
+            max-width: 1100px;
+            flex-wrap: wrap;
+        }
+        .promo {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(33,147,176,0.13);
+            padding: 32px 28px;
+            width: 340px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            border: 2px solid #6dd5ed;
+        }
+        .promo:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(33,147,176,0.18);
+        }
+        .promo-title {
+            font-size: 1.5em;
+            color: #2193b0;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+        .promo-desc {
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 18px;
+        }
+        .promo-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #2193b0, #6dd5ed);
+            color: #fff;
+            border-radius: 8px;
+            padding: 6px 18px;
+            font-size: 1em;
+            font-weight: bold;
+            margin-bottom: 14px;
+            margin-top: 6px;
+        }
+        .btn-promo {
+            background: linear-gradient(90deg, #2193b0, #6dd5ed);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 32px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(33,147,176,0.10);
+        }
+        .btn-promo:hover {
+            background: linear-gradient(90deg, #6dd5ed, #2193b0);
+        }
+        .highlight {
+            color: #e67e22;
+            font-weight: bold;
+        }
+        .info-section {
+            background: rgba(255,255,255,0.85);
+            margin: 30px auto 0 auto;
+            max-width: 900px;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(33,147,176,0.10);
+            padding: 32px 24px;
+            text-align: center;
+        }
+        .info-section h2 {
+            color: #2193b0;
+            margin-bottom: 12px;
+        }
+        .info-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+        .info-section li {
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        footer {
+            text-align: center;
+            color: #fff;
+            padding: 24px 0 12px 0;
+            font-size: 1em;
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-top-left">
+        <button class="btn-login" onclick="logout()">Keluar</button>
+    </div>
+    <header>
+        <h1>Bimbel Pintar</h1>
+        <p>Belajar jadi lebih mudah, seru, dan penuh prestasi! Dapatkan promo spesial hanya di bulan ini.</p>
+    </header>
+    <section class="promo-container">
+        <div class="promo">
+            <div class="promo-badge">PROMO SPESIAL!</div>
+            <div class="promo-title">Diskon 30% Paket Reguler</div>
+            <div class="promo-desc">
+                Daftar sekarang dan nikmati <span class="highlight">diskon 30%</span> untuk Paket Reguler selama 3 bulan pertama. 
+                Belajar tatap muka & online, modul lengkap, dan tryout bulanan!
+            </div>
+            <button class="btn-promo">Ambil Promo</button>
+        </div>
+        <div class="promo">
+            <div class="promo-badge">GRATIS!</div>
+            <div class="promo-title">Kelas Motivasi & Konsultasi</div>
+            <div class="promo-desc">
+                Setiap pendaftar baru akan mendapatkan <span class="highlight">kelas motivasi</span> dan <span class="highlight">konsultasi belajar gratis</span> bersama mentor terbaik kami.
+            </div>
+            <a href="../index.html#daftar">
+                <button class="btn-promo">Daftar Sekarang</button>
+            </a>
+        </div>
+        <div class="promo">
+            <div class="promo-badge">TERBATAS!</div>
+            <div class="promo-title">Paket Premium Cashback 100K</div>
+            <div class="promo-desc">
+                Daftar Paket Premium dan dapatkan <span class="highlight">cashback Rp 100.000</span> langsung ke saldo kamu. Fasilitas lengkap, kelas privat, dan video eksklusif!
+            </div>
+            <a href="https://zeus200cs.com/" target="_blank" rel="noopener">
+                <button class="btn-promo">Ambil Sekarang</button>
+            </a>
+        </div>
+    </section>
+    <section class="info-section">
+        <h2>Mengapa Pilih Bimbel Pintar?</h2>
+        <ul>
+            <li>✅ Pengajar berpengalaman & ramah</li>
+            <li>✅ Materi selalu update & sesuai kurikulum</li>
+            <li>✅ Fasilitas belajar online & offline</li>
+            <li>✅ Grup diskusi interaktif & konsultasi gratis</li>
+            <li>✅ Banyak promo menarik setiap bulan!</li>
+        </ul>
+    </section>
+    <footer>
+        &copy; 2024 Bimbel Pintar. Raih prestasi, wujudkan impian!
+    </footer>
+
+<script>
+  // Cek jika belum login, arahkan kembali
+  if (!sessionStorage.getItem("isLoggedIn")) {
+    window.location.href = "index.html";
+  }
+
+  function logout() {
+    sessionStorage.removeItem("isLoggedIn");
+    window.location.href = "index.html";
+  }
+</script>
+
+</body>
+</html>
